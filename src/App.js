@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React,  { useState } from  "react";
+import Footer from  './components/Footer';
+import Header from './components/Header';
+
+
 import './App.css';
 
 function App() {
+ // test
+  const [number, setNumber] = useState(1);
+  function increment() {
+    setNumber((prevNumber) => prevNumber + 1);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="AppGrid"> 
+      <Header />
+      <Footer />      
     </div>
+    <button data-testid="add-one" onClick={increment}>
+          Add one 
+    </button>
+    <h1 data-test-id="currentNumber"> {number} </h1>      
+  </>
   );
 }
 
