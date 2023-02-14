@@ -1,7 +1,7 @@
 import React,  { useState } from  "react";
 import Footer from  './components/Footer';
 import Header from './components/Header';
-
+import Main from './components/Main';
 
 import './App.css';
 
@@ -17,12 +17,13 @@ function App() {
     <>
     <div className="AppGrid"> 
       <Header />
+      <Main />
       <Footer />      
     </div>
     <button data-testid="add-one" onClick={increment}>
-          Add one 
+      Add one
     </button>
-    <h1 data-test-id="currentNumber"> {number} </h1>      
+    <h1 data-test-id="currentNumber">{number}</h1>   
   </>
   );
 }

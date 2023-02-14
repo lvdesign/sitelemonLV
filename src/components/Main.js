@@ -1,15 +1,8 @@
-import CallToAction from './CallToAction';
-import Chicago from './Chicago';
-import CustomersSay from './CustomersSay';
-import Specials from './Specials';
 //
-function Main(props) {
+function Main() {
     return (
         <>
-          <CallToAction />
-          <Specials />
-          <CustomersSay />
-          <Chicago />
+          
         </>
     );
 };

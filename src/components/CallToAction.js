@@ -2,7 +2,7 @@ import backgroundimage from  '../assets/images/restaurant-inside-alternative.jpg
 
 import { Link } from 'react-router-dom';
 
-function CallToAction(props) {
+function CallToAction() {
     const myStyle={
         display: 'flex',
         justifyContent: 'center',
@@ -22,12 +22,12 @@ function CallToAction(props) {
     return (
       <>
        <section  className="heroSection" role="img" aria-label="Image Description" style={myStyle}>
-            <h1 className="heroH1">Little Lemon  </h1>
-            <h3 className="heroH3">Chicago</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies consectetur interdum. Sed nec elit aliquam, lobortis tellus ut, hendrerit risus. Morbi sed turpis non diam dictum faucibus faucibus sit amet ligula.</p>
+            <h1 className="title">Booking to Little Lemon  </h1>
+            <h3 className="subtitle">Chicago</h3>
+            <p className="textaction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies consectetur interdum. Sed nec elit aliquam, lobortis tellus ut, hendrerit risus. Morbi sed turpis non diam dictum faucibus faucibus sit amet ligula.</p>
             <button className="heroButton">
             
-            <Link to={"./booking"}>Book your table now</Link>
+            <Link to={"./home"}>Back to Home </Link>
             </button>
         </section>
         </>

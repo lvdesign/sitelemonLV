@@ -1,11 +1,11 @@
-import lemon from '../assets/images/lemon.png';
 
+import lemon from '../assets/images/lemon.png';
 import Nav from './Nav';
 
-function Header(props) {
+function Header() {
     return (
-        <div className="header">
-            <img src={lemon} alt="logo" width="300px"/>
+        <div className="header">         
+            <img src={lemon} alt="logo" width="150px"/>
             <Nav />
         </div>
     );

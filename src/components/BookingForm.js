@@ -1,51 +1,33 @@
 import React, { useState } from 'react';
 
-    const BookingForm = () => {
-
+    const BookingForm = (props) => {
         // reducer
 
-        // style
-        const mystyleForm={
-            display: 'grid',
-            maxWidth: '200px',
-            gap: '20px',
-        }
-
-
         // availableTimes
-        const [form, setForm] = useState({ 
-            name: '',
-            firstname: '', 
-            lastname: '', 
+        const [availableTimes, setAvailableTimes] = useState({ 
             resdate:'',
             restime:'',
             guests:'',
             occasions:'',
           }); 
 
-          const [occasions, setOccasions] = useState("Birthday");
-
-
-
           const getIsFormValid = () => {
             // Implement this function
             return(
-            form.firstname 
-            && form.lastname
-            && form.resdate
-            && form.restime
-            && form.guests      
-            && form.occasions !== 'occasions'
+                availableTimes.restime
+            && availableTimes.guests      
+            && availableTimes.occasions !== 'occasions'
             )
           };
 
           const clearForm = () => {
             // Implement this function
-            setForm('')
+            setAvailableTimes(' ')
           };
-    
+
         const handleSubmit = (e) => { 
             e.preventDefault();
+            props.onAdd(availableTimes);
             
             console.log('form submit')
             alert( 'Your Booking is created!');
@@ -71,44 +53,20 @@ import React, { useState } from 'react';
 
     return(
     <>
-        <form onSubmit={handleSubmit} style={mystyleForm} >
-            <fieldset>
+    <section className="spaceSection">
 
-            <div className="Field">
-            <label htmlFor="firstname">Firstname :</label>
-            <input
-            type="text"
-            id="firstname"
-            name= "firstname"
-            placeholder="firstname"            
-            onChange={ e => setForm({
-                ...form,
-                firstname: e.target.value 
-                }) }            
-            />
-            </div>
-
-            <div className="Field">
-            <label htmlFor="lastname">Lastname :</label>
-            <input
-            type="text"
-            name= "lastname"
-            id="lastname"            
-            placeholder="lastname" 
-            onChange={ e => setForm({
-                ...form,
-                lastname: e.target.value}) }            
-            />
-            </div>
-           
+    
+        <form onSubmit={handleSubmit}  id="formBook" className="backGround">
+            <fieldset>           
             <div className="Field">
             <label htmlFor="resdate">Choose a date :</label>
             <input
+            className="fontSize"
             id="resdate"
             name ="resdate"
             placeholder="Date de reservation"
-            onChange={ e => setForm({
-                ...form,
+            onChange={ e => setAvailableTimes({
+                ...availableTimes,
                 resdate: e.target.value}) }            
             type="date"  
             />
@@ -117,10 +75,13 @@ import React, { useState } from 'react';
             <div className="Field">
             <label htmlFor="restime">Choose a time:</label>
             <select 
+            className="fontSize"
             id="restime"
-            onChange={ e => setForm({
-                ...form,
-                restime: e.target.value}) }             
+            value={availableTimes.restime}
+            onChange={ e => setAvailableTimes({
+                ...availableTimes,
+                restime: e.target.value}) }      
+            
             >
                 <option>17:00</option>
                 <option>18:00</option>
@@ -134,13 +95,14 @@ import React, { useState } from 'react';
             <div className="Field">
             <label htmlFor="guests">Number of guests : </label>
             <input
+            className="fontSize"
             id="guests"
             name ="guests"
             placeholder="1" 
             min="1" 
             max="10" 
-            onChange={ e => setForm({
-                ...form,
+            onChange={ e => setAvailableTimes({
+                ...availableTimes,
                 guests: e.target.value}) }
             type="number"
             />
@@ -151,32 +113,34 @@ import React, { useState } from 'react';
             <div className="Field">
             <label htmlFor="occasions">Occasions <sup>*</sup></label>
             <select
+            className="fontSize"
              id="occasions"
              name ="occasions"
-            onChange={ e => setForm({
-                ...form,
-                occasions: e.target.value}) }             >
+            onChange={ e => setAvailableTimes({
+                ...availableTimes,
+                occasions: e.target.value}) }
+                >
                 <option value="Birthday">Birthday</option>
-                <option value="Engagement">Engagement</option>
                 <option value="Anniversary">Anniversary</option>
             </select>
             
             </div>
 
-            <button disabled={!getIsFormValid()} type="submit">Make Your reservation</button>
+            <button disabled={!getIsFormValid()} type="submit" className="bookButton">Make Your reservation</button>
             </fieldset>
             
         </form>
 
         <div className="book">
             <h2>Your booking : </h2>
-                <p>Votre prenom : {form.firstname}</p>
-                <p>Votre nom :  {form.lastname}</p>                
-                <p>Date : {form.resdate}, Heure: {form.restime}</p>
-                <p>Guests :  {form.guests}</p>
-                <p>Your Occasion :  {form.occasions}</p>
+            <p><b>Date :</b> {availableTimes.resdate} 
+            <span><b> At :</b> {availableTimes.restime} H,</span> </p>
+            <p>{availableTimes.guests} <b>Guests, </b> </p>
+            <p><b>For </b>  {availableTimes.occasions} <b> Occasion.</b></p>
         </div>
+        
        
+        </section> 
         </>
         
     );
