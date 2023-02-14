@@ -12,20 +12,16 @@ import React, { useState } from 'react';
           }); 
 
           const getIsFormValid = () => {
-            // Implement this function
             return(
                 availableTimes.restime
             && availableTimes.guests      
             && availableTimes.occasions !== 'occasions'
             )
           };
-
           const clearForm = () => {
-            // Implement this function
             setAvailableTimes(' ')
           };
-
-        const handleSubmit = (e) => { 
+            const handleSubmit = (e) => { 
             e.preventDefault();
             props.onAdd(availableTimes);
             
@@ -53,9 +49,7 @@ import React, { useState } from 'react';
 
     return(
     <>
-    <section className="spaceSection">
-
-    
+    <section className="spaceSection">    
         <form onSubmit={handleSubmit}  id="formBook" className="backGround">
             <fieldset>           
             <div className="Field">
@@ -80,8 +74,7 @@ import React, { useState } from 'react';
             value={availableTimes.restime}
             onChange={ e => setAvailableTimes({
                 ...availableTimes,
-                restime: e.target.value}) }      
-            
+                restime: e.target.value}) }
             >
                 <option>17:00</option>
                 <option>18:00</option>
@@ -106,9 +99,7 @@ import React, { useState } from 'react';
                 guests: e.target.value}) }
             type="number"
             />
-            </div>
-
-            
+            </div>            
 
             <div className="Field">
             <label htmlFor="occasions">Occasions <sup>*</sup></label>
@@ -122,8 +113,7 @@ import React, { useState } from 'react';
                 >
                 <option value="Birthday">Birthday</option>
                 <option value="Anniversary">Anniversary</option>
-            </select>
-            
+            </select>            
             </div>
 
             <button disabled={!getIsFormValid()} type="submit" className="bookButton">Make Your reservation</button>

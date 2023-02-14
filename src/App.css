@@ -270,37 +270,36 @@ Section Footer
 .footerCard{
   flex-direction: row ;  
 }
-
-
 .footer-menu{
   display: inline-block;
 }
 .footer-nav-item{
   display: block;
-  margin: 0;  
+  margin:.5em 0;  
   margin-bottom:.5em;
   color:#F4CE14;
   text-decoration: none;
 }
 .footer-nav-item:hover{
-  display: block;
-  margin: 0;  
-  margin-bottom:.5em;
-  color:white;
-  
+  text-decoration: underline;
+  color:white;  
+}
+.footer-contact li{
+margin:0.5em 0;
 }
 
 .footer-socials{
   display: inline-block;
- 
-
 }
-
-.socials-item{
+.socials-item a{
   display: block;
   margin:.5em 0; 
   color:#F4CE14;
   text-decoration: none;
+}
+.socials-item a:hover{
+  color:white;
+  text-decoration: underline;
 }
 
 

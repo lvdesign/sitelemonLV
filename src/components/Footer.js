@@ -11,7 +11,7 @@ const date = new Date()
                 <img src={lemonLogoFooter} alt="Lemon restautant" />
           </div>
           <div className="footerCard">    
-            <h5>Navigation</h5>            
+            <h5>NAVIGATION</h5>            
             <ul className="footer-menu">
                 <Link to="/" className="footer-nav-item"> Home</Link>                    
                 <Link to="/booking" className="footer-nav-item">Booking</Link>
@@ -22,8 +22,8 @@ const date = new Date()
            
           </div>
           <div className="footerCard">    
-            <h5>Contact</h5>
-            <ul>
+            <h5>CONTACT</h5>
+            <ul className="footer-contact">
               <li>Lemon Restaurant</li>
               <li>2395 Maldove Way,</li>
               <li>Chicago Illinois</li>
@@ -35,7 +35,7 @@ const date = new Date()
               >
               info@littlelemon.com
               </a>
-              <li>Le <Child message={date.toLocaleDateString()}/></li>
+              <li><Child message={date.toLocaleDateString()}/></li>
               </li>
              
             </ul>
@@ -43,7 +43,7 @@ const date = new Date()
           </div>
           <div className="footerCard">    
             
-            <h5>Social</h5> 
+            <h5>SOCIAL</h5> 
             <ul className="footer-socials">
               <li className="socials-item">
               <a
